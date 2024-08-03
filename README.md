@@ -1,3 +1,9 @@
+**<span style="color:red;">Disclaimer:</span>**
+
+**<span style="color:red;">The base URL used in the tests for the Urban Grocers API is private and temporary. It is accessible only to those enrolled in the TripleTen Sprint 4 QA Engineer course. The base URL may change or be regenerated periodically, making it inaccessible to others. The purpose of this repository is to provide an overview of the work and experience with Postman. Due to the private nature of the base URL, the tests cannot be recreated outside of the specified course environment.</span>**
+
+
+
 *This summary outlines the testing of the Urban Grocers API, focusing on:*
 
 1. Adding products to a kit.
