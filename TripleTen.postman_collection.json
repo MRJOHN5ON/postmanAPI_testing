@@ -1,0 +1,338 @@
+{
+	"info": {
+		"_postman_id": "2904627c-e3b4-45de-9cdd-55a04d1304d5",
+		"name": "TripleTen",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35952664"
+	},
+	"item": [
+		{
+			"name": "Getting a list of kits in the card",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/api/v1/kits?cardId=1",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"kits"
+					],
+					"query": [
+						{
+							"key": "cardId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting a list of products by kit name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/api/v1/kits/search?name=Going+into+space",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"kits",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Going+into+space"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creating an empty kit.",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n     \"cardId\": 1, \n     \"name\": \"Going into space\" \n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/kits",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"kits"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting a list of kits by product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"ids\": [\n    1\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/products/kits",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"kits"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting all Urban Grocers server logs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://cnt-dba6e72a-dbeb-463f-ae7e-1236864d9040.containerhub.tripleten-services.com/api/logs/main",
+					"protocol": "https",
+					"host": [
+						"cnt-dba6e72a-dbeb-463f-ae7e-1236864d9040",
+						"containerhub",
+						"tripleten-services",
+						"com"
+					],
+					"path": [
+						"api",
+						"logs",
+						"main"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Checking product availability in the Urban Grocers warehouses",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n     \"products\": [\n         {\n             \"id\": 5,\n             \"quantity\": 1\n         },\n         {\n             \"id\": 4,\n             \"quantity\": 5\n         }\n     ]\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cnt-78407bba-e602-4845-a292-d2594a40360a.containerhub.tripleten-services.com/api/v1/warehouses/check",
+					"protocol": "https",
+					"host": [
+						"cnt-78407bba-e602-4845-a292-d2594a40360a",
+						"containerhub",
+						"tripleten-services",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"warehouses",
+						"check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ordering fast delivery XML",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<InputModel>\n    <productsCount>02</productsCount>\n    <productsWeight>5.115</productsWeight>\n    <deliveryTime>7</deliveryTime>\n</InputModel>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cnt-8bc149cc-a434-4de4-ad78-d8531fdd8515.containerhub.tripleten-services.com/fast-delivery/v3.1.1/calculate-delivery.xml",
+					"protocol": "https",
+					"host": [
+						"cnt-8bc149cc-a434-4de4-ad78-d8531fdd8515",
+						"containerhub",
+						"tripleten-services",
+						"com"
+					],
+					"path": [
+						"fast-delivery",
+						"v3.1.1",
+						"calculate-delivery.xml"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ordering fast delivery XML inconclusive weigh definitions",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<InputModel>\n    <productsCount>02</productsCount>\n    <productsWeight>5.115</productsWeight>\n    <deliveryTime>7</deliveryTime>\n</InputModel>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cnt-8bc149cc-a434-4de4-ad78-d8531fdd8515.containerhub.tripleten-services.com/fast-delivery/v3.1.1/calculate-delivery.xml",
+					"protocol": "https",
+					"host": [
+						"cnt-8bc149cc-a434-4de4-ad78-d8531fdd8515",
+						"containerhub",
+						"tripleten-services",
+						"com"
+					],
+					"path": [
+						"fast-delivery",
+						"v3.1.1",
+						"calculate-delivery.xml"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "adding product to kit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"productsList\": [\n    {\n      \"id\": 11,\n      \"quantity\": 12\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cnt-fa63cff2-9c23-4f1c-b374-ad3dbc678be1.containerhub.tripleten-services.com/api/v1/kits/3/products",
+					"protocol": "https",
+					"host": [
+						"cnt-fa63cff2-9c23-4f1c-b374-ad3dbc678be1",
+						"containerhub",
+						"tripleten-services",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"kits",
+						"3",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "adding product to kit Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"productsList\": [\n    {\n      \"id\": 407,\n      \"quantity\": 1\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cnt-fa63cff2-9c23-4f1c-b374-ad3dbc678be1.containerhub.tripleten-services.com/api/v1/kits/2/products",
+					"protocol": "https",
+					"host": [
+						"cnt-fa63cff2-9c23-4f1c-b374-ad3dbc678be1",
+						"containerhub",
+						"tripleten-services",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"kits",
+						"2",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "creating a kit ID9",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"ryley1\",\n  \"cardId\": 9\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cnt-85ca1bdf-1241-42f2-a403-930693381895.containerhub.tripleten-services.com/api/v1/kits",
+					"protocol": "https",
+					"host": [
+						"cnt-85ca1bdf-1241-42f2-a403-930693381895",
+						"containerhub",
+						"tripleten-services",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"kits"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
