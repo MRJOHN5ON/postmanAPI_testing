@@ -1,7 +1,17 @@
 **<span style="color:red;">Disclaimer:</span>**
 
 **<span style="color:red;">The base URL used in the tests for the Urban Grocers API is private and temporary. It is accessible only to those enrolled in the TripleTen Sprint 4 QA Engineer course. The base URL may change or be regenerated periodically, making it inaccessible to others. The purpose of this repository is to provide an overview of the work and experience with Postman. Due to the private nature of the base URL, the tests cannot be recreated outside of the specified course environment.</span>**
+## Node.js Scripts
 
+The `node-tests` directory includes scripts written in JavaScript using Node.js to test the Urban Grocers API.
+
+### Directory Contents
+
+- **`get.kits.list.js`**: Retrieves kits and filters those with fewer than 30 items.
+- **`exceeding30items.js`**: Tests adding multiple quantities of the same product to a kit, checking if the 30-item limit is enforced.
+- **`exceeding30items.2.js`**: Tests adding multiple different products, each with a quantity of 1, to a kit, checking if the 30-item limit is enforced.
+- **`package.json`**: Contains metadata about the project and its dependencies.
+- **`package-lock.json`**: Locks the versions of dependencies to ensure consistent installations.
 
 
 *This summary outlines the testing of the Urban Grocers API, focusing on:*
@@ -17,7 +27,7 @@
 
 # Requirement 1: Adding Products to a Kit
 
-![Adding Products to a Kit](https://file.notion.so/f/f/faada197-3f00-4085-a2c7-f628f29ece6f/4f105270-9919-4480-be51-126afe228ef3/Screen_Shot_2024-06-21_at_4.42.53_PM.png?table=block&id=6816949e-afdd-4913-b33b-c1595804ec94&spaceId=faada197-3f00-4085-a2c7-f628f29ece6f&expirationTimestamp=1722801600000&signature=DK17RnPGOPtQrlCUoUczXgz9FgZBQH4-pNQ_Lvkpnpc&downloadName=Screen+Shot+2024-06-21+at+4.42.53+PM.png)
+![Adding Products to a Kit](https://mrjohn5on.github.io/assets/images/p1.png)
 
 ## Key Findings
 
@@ -32,11 +42,11 @@
 - Interestingly, when adding multiple different products, each with a single quantity, to a kit that had under 30 items (causing it to exceed 30), the API behaved correctly and returned HTTP 400.
 - **Example of the bug in Postman**
 
-    ![Exceeding 30 Items](https://file.notion.so/f/f/faada197-3f00-4085-a2c7-f628f29ece6f/4fd8f14d-840f-4f4c-be52-f9c06f2d2fdf/Screen_Shot_2024-06-21_at_4.53.46_PM.png?table=block&id=e6bdefd0-dc2b-4abf-914d-a8a0c9b55da9&spaceId=faada197-3f00-4085-a2c7-f628f29ece6f&expirationTimestamp=1722801600000&signature=ZHruC5Px_axJnpiZuRAM1yjzE-K-CWHA7dOoNNJZHoE&downloadName=Screen+Shot+2024-06-21+at+4.53.46+PM.png)
+    ![Exceeding 30 Items](https://mrjohn5on.github.io/assets/images/p2.png)
     
 - **Bug Report in JIRA**
 
-    ![Bug Report in JIRA](https://file.notion.so/f/f/faada197-3f00-4085-a2c7-f628f29ece6f/5b98ed85-932a-4fec-82eb-34122d3ac7e8/Screen_Shot_2024-06-21_at_4.58.39_PM.png?table=block&id=45ca1f30-84d9-42ab-9439-bde744b4349f&spaceId=faada197-3f00-4085-a2c7-f628f29ece6f&expirationTimestamp=1722801600000&signature=i_1kRUE7JWD32yD--EBBzOU5Vx5D4rSiYMjvw1wIthE&downloadName=Screen+Shot+2024-06-21+at+4.58.39+PM.png)
+    ![Bug Report in JIRA](https://mrjohn5on.github.io/assets/images/p3.png)
     
 
 ### **Non-existent Product IDs**
@@ -45,11 +55,11 @@
 - This could lead to users believing they have successfully added a valid product to their kit when, in fact, the product does not exist in the system.
 - **Example of the bug in Postman**
 
-    ![Non-existent Product IDs](https://file.notion.so/f/f/faada197-3f00-4085-a2c7-f628f29ece6f/fa29c4d3-f244-4295-963d-417b28dca26a/Screen_Shot_2024-06-21_at_5.02.42_PM.png?table=block&id=ff83a7f7-b565-4933-baa6-c86b75fd9bc6&spaceId=faada197-3f00-4085-a2c7-f628f29ece6f&expirationTimestamp=1722801600000&signature=OSEw4PahjwJT6Q4TpARMopY1BczCKmNgXWp5ABdezTE&downloadName=Screen+Shot+2024-06-21+at+5.02.42+PM.png)
+    ![Non-existent Product IDs](https://mrjohn5on.github.io/assets/images/p4.png)
     
 - **Bug Report in JIRA**
 
-    ![Bug Report in JIRA](https://file.notion.so/f/f/faada197-3f00-4085-a2c7-f628f29ece6f/7b8bf11f-1ffb-417a-b5cd-028c5bac2342/Screen_Shot_2024-06-21_at_5.05.01_PM.png?table=block&id=6884b0d0-9b7f-413c-b721-8628500dad3b&spaceId=faada197-3f00-4085-a2c7-f628f29ece6f&expirationTimestamp=1722801600000&signature=tHn74n1dSZ5I2xBODQISX49TG2SeVmyVnP4DEeGc12A&downloadName=Screen+Shot+2024-06-21+at+5.05.01+PM.png)
+    ![Bug Report in JIRA](https://mrjohn5on.github.io/assets/images/p5.png)
     
 
 ### **Invalid Inputs**
